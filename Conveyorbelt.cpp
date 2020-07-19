@@ -1,4 +1,4 @@
-#include "../include/Conveyorbelt.h"
+#include "./Conveyorbelt.h"
 
 Conveyorbelt* Conveyorbelt::conveyorbelt = 0;
 

@@ -11,7 +11,7 @@ private:
 public:
 	Customer(const string &name);
 	Customer(const string &name, const string &product_name, const float &product_price);
-	void add_product_to_conveyorbelt(const string &product_name, const float &product_price);
+	void add_product_to_conveyorbelt(Product &products);
 	void show_conveyorbelt() const;
 	vector<Product> get_product() const;
 };

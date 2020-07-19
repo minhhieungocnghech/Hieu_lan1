@@ -1,4 +1,4 @@
-#include "../include/Product.h"
+#include "./Product.h"
 
 Product::Product(){}
 Product::Product(const string &name, const float &price)

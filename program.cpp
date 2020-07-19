@@ -1,15 +1,15 @@
 
-#include "../include/program.h"
+#include "./program.h"
 
 using namespace std;
 
 string product_name;
 float product_price;
-int count;
+int _count;
+bool running = true;
 
 void Program::run()
 {
-    bool running = true;
     while (running)
     {
         print_menu();
@@ -58,11 +58,6 @@ void Program::do_task(const int &choice)
         print_message("Invalid choice!");
     }
 }
-Program::Program()
-{
-    // conveyorbelt = conveyorbelt->get_conveyorbelt();
-}
-
 
 void Program::add_product()
 {
@@ -70,37 +65,18 @@ void Program::add_product()
     cin >> product_name;
     cout << " Enter Price : ";
     cin >> product_price;
-    Product *p = new Product(product_name, product_price);
-    PName.push_back(p);
-    for (int i = 0; i < cus.size(); i++)
-    {
-        cus[i]->add_product_to_conveyorbelt(product_name, product_price);
-    }
-    for (int j = 0; j < conveyorbelt.size(); j++)
-    {
-        conveyorbelt[j]->add_product(product_name, product_price);
-    }
-    // for (int y = 0; y < count; y++)
-    // {
-    //     /* code */
-    // }
-    cout << PName.size() <<endl ;
-    
-         
+    Product p(product_name, product_price); 
+    customer->add_product_to_conveyorbelt(p);
 }
 
 void Program::add_count()
 {
     cout << " Enter count : ";
-    cin >> count;
+    cin >> _count;
 }
 void Program::show_all() const
 {
-    // cout << conveyorbelt.size() <<endl ;
-    for (int i = 0; i < conveyorbelt.size(); i++)
-    {
-        conveyorbelt[i]->show_conveyorbelt();
-    }
+    conveyorbelt->show_conveyorbelt();
 }
 void Program::print_message(const string &msg) const
 {
@@ -109,12 +85,4 @@ void Program::print_message(const string &msg) const
 
 Program::~Program()
 {
-    for (int i = 0; i < conveyorbelt.size(); i++)
-    {
-        delete conveyorbelt[i];
-    }
-    for (int i = 0; i < PName.size(); i++)
-    {
-        delete PName[i];
-    }
 }

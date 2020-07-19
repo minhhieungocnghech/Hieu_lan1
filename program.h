@@ -5,9 +5,9 @@
 #include <string>
 #include <vector>
 
-#include "../include/Product.h"
-#include "../include/Conveyorbelt.h"
-#include "../include/Customer.h"
+#include "./Product.h"
+#include "./Conveyorbelt.h"
+#include "./Customer.h"
 
 
 using namespace std;
@@ -20,13 +20,11 @@ using namespace std;
 class Program
 {
 private:
-    vector<Conveyorbelt*> conveyorbelt;
-    vector<Product*> PName;
-    vector<Customer*> cus;
+    Conveyorbelt* conveyorbelt;
+    Customer *customer;
 public:
     void run();
-    Program();
-    ~Program();
+    Program() {};
 private:
 
     void print_menu() const;

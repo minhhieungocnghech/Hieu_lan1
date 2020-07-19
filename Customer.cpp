@@ -1,4 +1,4 @@
-#include "../include/Customer.h"
+#include "./Customer.h"
 
 Customer::Customer(const string &name)
 {
@@ -13,9 +13,9 @@ Customer::Customer(const string &name, const string &product_name, const float &
 	this->name = name;
 }
 
-void Customer::add_product_to_conveyorbelt(const string &product_name, const float &product_price)
+void Customer::add_product_to_conveyorbelt(Product &products) 
 {
-	conveyorbelt->add_product(product_name, product_price);
+	conveyorbelt->add_product(products.get_name(), products.get_price());
 }
 
 void Customer::show_conveyorbelt() const
